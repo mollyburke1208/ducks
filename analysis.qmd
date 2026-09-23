@@ -6,6 +6,14 @@ execute:
   echo: false
 ---
 
+Mallard ducks (*Anas platyrhynchos*) are adaptable dabbling ducks found across much of the Northern Hemisphere. They use a wide range of wetland habitats and can travel between feeding, resting, and breeding sites as conditions change.
+
+Lake Constance is a large lake in central Europe bordered by Germany, Switzerland, and Austria. GPS tracking reveals how individual mallards move through this region, including the geographic extent of their movements, differences in tracking effort, and seasonal patterns in their speed and locations.
+
+<div style="display: flex; justify-content: center;">
+  <img src="images/mallard.jpg" style="height: 300px; width: auto;"/>
+</div>
+
 ```{r}
 #| message: false
 library(tidyverse)
