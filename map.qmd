@@ -1,0 +1,39 @@
+---
+title: "Mallard Duck Movement"
+author: "mollyburke1208"
+format: html
+execute:
+  echo: false
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(sf)
+```
+
+```{r}
+#| cache: true
+mallards <- readRDS("data/mallards.rds")
+```
+
+```{r}
+mallards_roi <- mallards |>
+  filter(
+    between(lat, 46, 55),
+    between(long, 7, 25)
+  ) |>
+  st_as_sf(coords = c("long", "lat"), crs = 4326, remove = FALSE)
+
+world <- rnaturalearth::ne_countries(
+  scale = "medium",
+  returnclass = "sf"
+)
+
+ggplot() +
+  geom_sf(data = world, fill = "grey95", color = "grey60", linewidth = 0.2) +
+  geom_sf(data = mallards_roi, aes(color = duck_id), size = 0.5, alpha = 0.7) +
+  coord_sf(xlim = c(7, 25), ylim = c(46, 55), expand = FALSE) +
+  labs(color = "Duck") +
+  theme_minimal()
+```

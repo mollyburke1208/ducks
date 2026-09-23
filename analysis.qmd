@@ -2,4 +2,32 @@
 title: "Mallard Duck Movement"
 author: "mollyburke1208"
 format: html
+execute:
+  echo: false
 ---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(sf)
+```
+
+```{r}
+#| cache: true
+mallards <- readRDS("data/mallards.rds")
+```
+
+```{r}
+mallards |>
+  count(duck_id, name = "gps_fixes", sort = TRUE)
+```
+
+```{r}
+mallards |>
+  summarise(
+    min_latitude = min(lat, na.rm = TRUE),
+    max_latitude = max(lat, na.rm = TRUE),
+    min_longitude = min(long, na.rm = TRUE),
+    max_longitude = max(long, na.rm = TRUE)
+  )
+```
