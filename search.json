@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "seasons.html",
+    "href": "seasons.html",
+    "title": "Mallard Duck Movement",
+    "section": "",
+    "text": "# A tibble: 12 × 3\n   month month_num gps_fixes\n   &lt;ord&gt;     &lt;dbl&gt;     &lt;int&gt;\n 1 Jan           1      3264\n 2 Feb           2      4899\n 3 Mar           3      7330\n 4 Apr           4      6031\n 5 May           5      3110\n 6 Jun           6      2503\n 7 Jul           7      5335\n 8 Aug           8      9482\n 9 Sep           9     20689\n10 Oct          10      9762\n11 Nov          11      4746\n12 Dec          12      3794\n\n\n\n\n# A tibble: 1 × 7\n  valid_speed_fixes min_speed first_quartile median_speed mean_speed\n              &lt;int&gt;     &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n1             80945         0            0.1         0.22      0.400\n# ℹ 2 more variables: third_quartile &lt;dbl&gt;, max_speed &lt;dbl&gt;\n\n\n\n\n# A tibble: 12 × 4\n   season month month_num mean_speed\n   &lt;ord&gt;  &lt;ord&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 Spring Mar           3      0.372\n 2 Spring Apr           4      0.360\n 3 Spring May           5      0.335\n 4 Summer Jun           6      0.307\n 5 Summer Jul           7      0.481\n 6 Summer Aug           8      0.474\n 7 Autumn Sep           9      0.438\n 8 Autumn Oct          10      0.400\n 9 Autumn Nov          11      0.338\n10 Winter Jan           1      0.329\n11 Winter Feb           2      0.358\n12 Winter Dec          12      0.327\n\n\n\n\nPicking joint bandwidth of 0.0381"
+  },
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "Mallard Duck Movement",
+    "section": "",
+    "text": "Mallard ducks (Anas platyrhynchos) are adaptable dabbling ducks found across much of the Northern Hemisphere. They use a wide range of wetland habitats and can travel between feeding, resting, and breeding sites as conditions change.\nLake Constance is a large lake in central Europe bordered by Germany, Switzerland, and Austria. GPS tracking reveals how individual mallards move through this region, including the geographic extent of their movements, differences in tracking effort, and seasonal patterns in their speed and locations.\n\n\n\n\n\n# A tibble: 52 × 2\n   duck_id                    gps_fixes\n   &lt;chr&gt;                          &lt;int&gt;\n 1 2351 - Radolfzell JC 72052     20169\n 2 1806 - Radolfzell JC70792      10139\n 3 2318 - Radolfzell JC 72053      9522\n 4 2312 - Radolfzell JC 72051      7163\n 5 2497 - Radolfzell JC74415       4835\n 6 2339 - Radolfzell JC 72018      4645\n 7 2495 - Radolfzell JC74406       3030\n 8 2501 - Radolfzell JC74418       2861\n 9 2502 - Radolfzell JC74417       2715\n10 2489 - Radolfzell JC74412       2514\n# ℹ 42 more rows\n\n\n\n\n# A tibble: 1 × 4\n  min_latitude max_latitude min_longitude max_longitude\n         &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;\n1         47.3         53.9          7.83          23.6"
+  }
+]
