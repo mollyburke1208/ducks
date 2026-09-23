@@ -1,0 +1,61 @@
+---
+title: "Mallard Duck Movement"
+author: "mollyburke1208"
+format: html
+execute:
+  echo: false
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(sf)
+library(ggridges)
+```
+
+```{r}
+#| cache: true
+mallards <- readRDS("data/mallards.rds")
+```
+
+```{r}
+mallards <- mallards |>
+  filter(speed <= 30)
+```
+
+```{r}
+mallards |>
+  count(month, month_num, name = "gps_fixes") |>
+  arrange(month_num)
+```
+
+```{r}
+mallards |>
+  summarise(
+    valid_speed_fixes = sum(!is.na(speed)),
+    min_speed = min(speed, na.rm = TRUE),
+    first_quartile = quantile(speed, 0.25, na.rm = TRUE),
+    median_speed = median(speed, na.rm = TRUE),
+    mean_speed = mean(speed, na.rm = TRUE),
+    third_quartile = quantile(speed, 0.75, na.rm = TRUE),
+    max_speed = max(speed, na.rm = TRUE)
+  )
+```
+
+```{r}
+mallards |>
+  group_by(season, month, month_num) |>
+  summarise(mean_speed = mean(speed, na.rm = TRUE), .groups = "drop") |>
+  arrange(season, month_num)
+```
+
+```{r}
+ggplot(
+  mallards |> filter(!is.na(speed)),
+  aes(x = speed, y = month, fill = month)
+) +
+  geom_density_ridges(alpha = 0.7, scale = 1.2, rel_min_height = 0.01) +
+  labs(x = "Speed", y = "Month", fill = "Month") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
